@@ -71,9 +71,9 @@ FROM Bank_Loan
 WHERE MONTH(issue_date)=11
 
 --GOOD LOAN Application Percentage
-SELECT (COUNT(ID)/cast((select count(id) 
-						from Bank_Loan)
-						as decimal(10,5)))*100 as GOOD_LOAN_Application_Percentage
+SELECT (COUNT(ID) / cast((select count(id) 
+			  from Bank_Loan)
+			  as decimal(10,5)))*100 as GOOD_LOAN_Application_Percentage
 FROM Bank_Loan
 WHERE loan_status='Fully Paid' or loan_status='Current'
 
@@ -93,9 +93,9 @@ FROM Bank_Loan
 WHERE loan_status='Fully Paid' or loan_status='Current'
 
 --Bad Loan Application Percentage
-SELECT (COUNT(ID)/cast((select count(id) 
-						from Bank_Loan)
-						as decimal(10,5)))*100 as Bad_Loan_Application_Percentage
+SELECT (COUNT(ID) / cast((select count(id) 
+			  from Bank_Loan)
+			  as decimal(10,5)))*100 as Bad_Loan_Application_Percentage
 FROM Bank_Loan
 WHERE loan_status='Charged Off'
 
